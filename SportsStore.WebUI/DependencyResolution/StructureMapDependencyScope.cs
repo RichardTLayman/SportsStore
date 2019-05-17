@@ -51,14 +51,14 @@ namespace SportsStore.WebUI.DependencyResolution {
         #endregion
         private void AddBindings(IContainer container)
         {
-            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns(new List<Product>
             {
                 new Product { Name = "Football", Price = 25 },
                 new Product { Name = "Surf board", Price = 179 },
                 new Product { Name = "Running shoes", Price = 95 }
             });
-            container.Inject<IProductsRepository>(mock.Object);
+            container.Inject<IProductRepository>(mock.Object);
         }
 
         #region Public Properties
